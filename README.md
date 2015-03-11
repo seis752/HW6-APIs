@@ -3,6 +3,7 @@
 
 ## PART1 –
  Using TWILLIO API – POST a message to your site.
+ - Use the discount code in the slide lectures for a $30 credit.
 ## PART2 – 
 ###OPTION 1: Implement [one] Step by Step an OAuth Token exchange.
  - https://developers.google.com/accounts/docs/OAuth2
