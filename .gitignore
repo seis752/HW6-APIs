@@ -50,5 +50,8 @@ crashlytics-build.properties
 # MySQL Workbench
 *.mwb.bak
 
+# Node
+node_modules
+
 # Private files
 web/application/config.php
