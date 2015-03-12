@@ -1,55 +1,59 @@
 // search-ajax-2.js
 // Search functionality using jQuery.
 
-var search = {
+(function() {
+  'use strict';
 
-  searchResultsUrl: 'search-results.php',
-  searchResultsListHtml: '',
+  var search = {
 
-  init: function () {
-    this.bindEvents();
-  },
+    searchResultsUrl: 'search-results.php',
+    searchResultsListHtml: '',
 
-  bindEvents: function () {
-    var _this = this;
+    init: function() {
+      this.bindEvents();
+    },
 
-    // Add "click" event handler to the "Search" button.
-    $('#search-button').on('click', function () {
-      _this.handleSearch();
-    });
-  },
+    bindEvents: function() {
+      var _this = this;
 
-  handleSearch: function () {
-    var _this = this;
-    var name = $('#name').val();
-    var url = _this.searchResultsUrl + '?name=' + name;
-
-    $.ajax({
-      dataType: 'html',
-      url: url
-    })
-      .done(function (data, textStatus, jqXHR) {
-        _this.searchResultsListHtml = $(data).find('#search-results-list');
-        _this.updateUiSearchResults();
-      })
-      .fail(function () {
-        console.log('ERROR');
-      })
-      .always(function () {
-        // Do nothing
+      // Add "click" event handler to the "Search" button.
+      $('#search-button').on('click', function() {
+        _this.handleSearch();
       });
-  },
+    },
 
-  updateUiSearchResults: function () {
-    var $searchResultsContainer = $('#search-results');
-    var $searchResultsListContainer = $('#search-results-list-container');
+    handleSearch: function() {
+      var _this = this;
+      var name = $('#name').val();
+      var url = _this.searchResultsUrl + '?name=' + name;
 
-    $searchResultsListContainer.html(this.searchResultsListHtml);
-    $searchResultsContainer.css('display', 'block');
-  }
+      $.ajax({
+        dataType: 'html',
+        url: url
+      })
+        .done(function(data) {
+          _this.searchResultsListHtml = $(data).find('#search-results-list');
+          _this.updateUiSearchResults();
+        })
+        .fail(function() {
+          console.log('ERROR');
+        })
+        .always(function() {
+          // Do nothing
+        });
+    },
 
-};
+    updateUiSearchResults: function() {
+      var $searchResultsContainer = $('#search-results');
+      var $searchResultsListContainer = $('#search-results-list-container');
 
-$(document).ready(function () {
-  search.init();
-});
+      $searchResultsListContainer.html(this.searchResultsListHtml);
+      $searchResultsContainer.css('display', 'block');
+    }
+
+  };
+
+  $(document).ready(function() {
+    search.init();
+  });
+}());

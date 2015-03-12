@@ -1,91 +1,95 @@
 // search-ajax-1.js
 // Search functionality using XMLHttpRequest object directly.
 
-var search = {
+(function() {
+  'use strict';
 
-  searchResultsUrl: 'search-results.php',
-  searchResultsListHtml: '',
+  var search = {
 
-  init: function () {
-    this.bindEvents();
-  },
+    searchResultsUrl: 'search-results.php',
+    searchResultsListHtml: '',
 
-  bindEvents: function () {
-    // Add "click" event handler to the "Search" button.
-    document.getElementById('search-button')
-      .addEventListener('click', this.handleSearch);
-  },
+    init: function() {
+      this.bindEvents();
+    },
 
-  handleSearch: function () {
-    var name = document.getElementById('name').value;
-    var url = search.searchResultsUrl + '?name=' + name;
-    var request = search.createXMLHttpRequest();
+    bindEvents: function() {
+      // Add "click" event handler to the "Search" button.
+      document.getElementById('search-button')
+        .addEventListener('click', this.handleSearch);
+    },
 
-    if (request != null) {
-      // Use "document" response type, so we can find elements in DOM later.
-      request.responseType = 'document';
+    handleSearch: function() {
+      var name = document.getElementById('name').value;
+      var url = search.searchResultsUrl + '?name=' + name;
+      var request = search.createXMLHttpRequest();
 
-      request.onreadystatechange = function () {
-        switch (request.readyState) {
-          case 0: // UNSENT
-            break;
-          case 1: // OPENED
-            break;
-          case 2: // HEADERS_RECEIVED
-            break;
-          case 3: // LOADING
-            break;
-          case 4: // DONE
-            if (request.status == 200) {
-              search.searchResultsListHtml =
-                request.response.getElementById('search-results-list').outerHTML;
+      if (request != null) {
+        // Use "document" response type, so we can find elements in DOM later.
+        request.responseType = 'document';
 
-              search.updateUiSearchResults();
-            } else {
-              console.log('ERROR');
-              console.log(request.response);
-            }
+        request.onreadystatechange = function() {
+          switch (request.readyState) {
+            case 0: // UNSENT
+              break;
+            case 1: // OPENED
+              break;
+            case 2: // HEADERS_RECEIVED
+              break;
+            case 3: // LOADING
+              break;
+            case 4: // DONE
+              if (request.status === 200) {
+                search.searchResultsListHtml =
+                  request.response.getElementById('search-results-list').outerHTML;
 
-            break;
-        }
-      };
+                search.updateUiSearchResults();
+              } else {
+                console.log('ERROR');
+                console.log(request.response);
+              }
 
-      request.open('GET', url, true);
-      request.send(null);
-    }
-  },
+              break;
+          }
+        };
 
-  // Supports multiple ways for creating an XMLHttpRequest object.
-  // REF: "Lecture05 - SEIS752 - Version Control & AJAX.pptx"
-  createXMLHttpRequest: function () {
-    var request = null;
+        request.open('GET', url, true);
+        request.send(null);
+      }
+    },
 
-    try {
-      request = new XMLHttpRequest();
-    } catch (ex1) {
+    // Supports multiple ways for creating an XMLHttpRequest object.
+    // REF: "Lecture05 - SEIS752 - Version Control & AJAX.pptx"
+    createXMLHttpRequest: function() {
+      var request = null;
+
       try {
-        request = new ActiveXObject('Microsoft.XMLHTTP');
-      } catch (ex2) {
+        request = new XMLHttpRequest();
+      } catch (ex1) {
         try {
-          request = new ActiveXObject('Msxml2.XMLHTTP');
-        } catch (ex3) {
-          // Give up, return "null" request.
+          request = new window.ActiveXObject('Microsoft.XMLHTTP');
+        } catch (ex2) {
+          try {
+            request = new window.ActiveXObject('Msxml2.XMLHTTP');
+          } catch (ex3) {
+            // Give up, return "null" request.
+          }
         }
       }
+
+      return request;
+    },
+
+    updateUiSearchResults: function() {
+      var searchResultsContainer = document.getElementById('search-results');
+      var searchResultsListContainer =
+        document.getElementById('search-results-list-container');
+
+      searchResultsListContainer.innerHTML = this.searchResultsListHtml;
+      searchResultsContainer.style.display = 'block';
     }
 
-    return request;
-  },
+  };
 
-  updateUiSearchResults: function () {
-    var searchResultsContainer = document.getElementById('search-results');
-    var searchResultsListContainer =
-      document.getElementById('search-results-list-container');
-
-    searchResultsListContainer.innerHTML = this.searchResultsListHtml;
-    searchResultsContainer.style.display = 'block';
-  }
-
-};
-
-search.init();
+  search.init();
+}());
