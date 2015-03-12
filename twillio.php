@@ -6,7 +6,7 @@
 <?php
 include_once("config.php");
 
-$sql = "SELECT * FROM twillio order by ts desc limit 50";
+$sql = "SELECT * FROM twilio order by ts desc limit 50";
 
 print "";
 if ($result=mysqli_query($db,$sql))
