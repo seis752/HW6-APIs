@@ -3,6 +3,16 @@ module.exports = function (grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    concat: {
+      schema: {
+        src: [
+          './database/schema-structure.sql',
+          './database/twilio-datamodel.sql',
+          './database/schema-data.sql'
+        ],
+        dest: './database/schema.sql'
+      }
+    },
     csslint: {
       options: {
         csslintrc: '.csslintrc'
@@ -27,6 +37,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-jscs');
   grunt.loadNpmTasks('grunt-contrib-csslint');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
   // Default task(s).
   grunt.registerTask('default', ['jshint', 'jscs', 'csslint']);
