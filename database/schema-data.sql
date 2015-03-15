@@ -10,15 +10,16 @@ INSERT INTO `user`
 (`id`,
 `username`,
 `password`,
-`name`)
+`name`,
+`phone`)
 VALUES
-(5001,'user1','$1$Yh0.B50.$JaoTIafemHYbEr65N9HhZ0','AlexanderM'),
-(5002,'user2','$1$Yh0.B50.$JaoTIafemHYbEr65N9HhZ0','BeccaE'),
-(5003,'user3','$1$Yh0.B50.$JaoTIafemHYbEr65N9HhZ0','CoryP'),
-(5004,'user4','$1$Yh0.B50.$JaoTIafemHYbEr65N9HhZ0','DRF'),
-(5005,'user5','$1$Yh0.B50.$JaoTIafemHYbEr65N9HhZ0','EmilyW'),
-(5006,'user6','$1$Yh0.B50.$JaoTIafemHYbEr65N9HhZ0','FreddyK'),
-(5007,'user7','$1$Yh0.B50.$JaoTIafemHYbEr65N9HhZ0','GeorgeW');
+(5001,'user1','$1$Yh0.B50.$JaoTIafemHYbEr65N9HhZ0','JSM','+16125903270'),
+(5002,'user2','$1$Yh0.B50.$JaoTIafemHYbEr65N9HhZ0','BeccaE',NULL),
+(5003,'user3','$1$Yh0.B50.$JaoTIafemHYbEr65N9HhZ0','CoryP',NULL),
+(5004,'user4','$1$Yh0.B50.$JaoTIafemHYbEr65N9HhZ0','DRF',NULL),
+(5005,'user5','$1$Yh0.B50.$JaoTIafemHYbEr65N9HhZ0','EmilyW',NULL),
+(5006,'user6','$1$Yh0.B50.$JaoTIafemHYbEr65N9HhZ0','FreddyK',NULL),
+(5007,'user7','$1$Yh0.B50.$JaoTIafemHYbEr65N9HhZ0','GeorgeW',NULL);
 
 -- -----------------------------------------------------
 -- Table `relationship`
