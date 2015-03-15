@@ -56,6 +56,21 @@ class UserService {
         return $user;
     }
 
+  public function findByPhone($phone)
+  {
+    $user = null;
+
+    $result = $this->db->query(sprintf("SELECT * FROM user WHERE user.phone = '%s'", $phone));
+
+    $row = $result->fetch_assoc();
+
+    if ($row != null) {
+      $user = User::create($row);
+    }
+
+    return $user;
+  }
+
     public function findFriends($userId)
     {
         $users = [];
