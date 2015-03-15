@@ -8,3 +8,4 @@ require_once('models/ValidationResult.php');
 require_once('services/AuthenticationService.php');
 require_once('services/MessageService.php');
 require_once('services/UserService.php');
+require_once('services/TwilioService.php');
