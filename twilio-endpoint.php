@@ -22,7 +22,7 @@ $ans = mysql_escape_string($ans);
 
 // This will dump all the parameters in the POST into a table called twiliotest
 
-mysqli_query($db,"INSERT INTO twiliotest (dump) VALUES ('$ans')");
+mysqli_query($link,"INSERT INTO twiliotest (dump) VALUES ('$ans')");
 
 
 
@@ -38,7 +38,7 @@ if(isset($_POST['Body'])){
 
     $sql = "INSERT INTO twilio (memo) VALUES ('$ans')";
 
-    mysqli_query($db,$sql);
+    mysqli_query($link,$sql);
 
 }
 
