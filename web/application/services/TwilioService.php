@@ -38,4 +38,10 @@ class TwilioService {
     return true;
   }
 
+    public function createResponse($message)
+    {
+        $response = '<?xml version="1.0" encoding="UTF-8"?><Response><Message>' . $message . '</Message></Response>';
+        return $response;
+    }
+
 }
