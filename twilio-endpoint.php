@@ -23,3 +23,4 @@ if(isset($_POST['Body'])){
 
 mysqli_close($db);
  
+?> //  john added this
