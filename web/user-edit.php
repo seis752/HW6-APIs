@@ -15,7 +15,6 @@ $currentUser = $userService->fetchCurrentUser();
 
 // Handle "update user" action.
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    var_dump($_POST);
     $user = new User();
     $user->setId($currentUser->getId());
     $user->setPhone($_POST['phone']);
