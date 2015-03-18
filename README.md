@@ -1,7 +1,5 @@
 # HW6-APIs
 
-# HW6-APIs
-
 ## Submission Notes
 * The hosted web application is available for review here: http://justinmcdowell.com/hw6/
 * As of 2015-03-17:
