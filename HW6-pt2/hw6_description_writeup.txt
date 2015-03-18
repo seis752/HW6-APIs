@@ -1,0 +1,7 @@
+Part 1 - Twilio
+
+For this section, I was able to get Twilio working and posting text messages to a web page. However I ran out of time to integrate this into my messages. It 
+took too much time (about 3+ hours) just to get it working for me. I had trouble with establishing database the connection and spent a lot time trying to make that work correctly with config.php and nail down the proper syntax. Also, had an error meesage with the twilio page and I didn't notice the close line at the bottom of that page for a while (which is a problem for a page that refreshes every second). But once I noticed it, I deleted it and it worked fine. 
+
+Part 2 -- Simple Weather 
+For this section, I built a web page that provided current weather conditions based on the users choice from a pulldown list of Florida cities (page called flweather.html). To retreive the weather data for the page, I used Simple Weather (Yahoo Weather API) which is jQuery-based. There were various source links and some JS code to insert into the page. I passed the user selection through a variable called zip into the provided code. I selected Simple Weather because it allows flexibility in how you can display weather data and is fairly easy to set up. Tested on Firefox.
