@@ -1,0 +1,6 @@
+<?php
+
+define('DATABASE_HOST', '');
+define('DATABASE_DATABASE', '');
+define('DATABASE_USER', '');
+define('DATABASE_PASSWORD', '');
