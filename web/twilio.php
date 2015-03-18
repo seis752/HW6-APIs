@@ -5,7 +5,7 @@ require_once('application/bootstrap.php');
 $db = new Database();
 $userService = new UserService($db);
 $messageService = new MessageService($db);
-$twilioService = new TwilioService();
+$twilioService = new TwilioService($db);
 
 // Check that the request is a valid Twilio request.
 if ($twilioService->validateRequest($_POST))
@@ -18,6 +18,9 @@ if ($twilioService->validateRequest($_POST))
     $message = $messageService->sanitizeMessageContent($_POST['Body']);
 
     $messageService->postMessage($user->getId(), $message, $user->getId());
+
+    // Capture the entire POST array for analysis.
+    $twilioService->log($_POST);
   }
   else
   {
