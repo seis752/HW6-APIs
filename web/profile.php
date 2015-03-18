@@ -80,6 +80,22 @@ $messages = $messageService->findMessages($user->getId());
                             <button type="submit" class="btn btn-primary">Post</button>
                         </div>
                     </form>
+
+                    <?php if ($user->getId() == $currentUser->getId()): ?>
+
+                        <?php if ($currentUser->getPhone() == null || $currentUser->getPhone() == ''): ?>
+                            <div style="padding-top: 20px;">
+                                <p>Add your mobile phone number to post messages from your phone. <a href="user-edit.php">Update Profile</a></p>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if (strlen($currentUser->getPhone()) > 0): ?>
+                            <div style="padding-top: 20px;">
+                                <p>You can also post to your stream from your mobile phone! Text to <strong>(763) 951-1314</strong>.</p>
+                            </div>
+                        <?php endif; ?>
+
+                    <?php endif; ?>
                 </div>
             </div>
 
@@ -113,13 +129,36 @@ $messages = $messageService->findMessages($user->getId());
                     <?php endif; ?>
                 </div>
                 <div class="panel-body">
-                    <?php foreach ($friends as $user) : ?>
+                    <?php foreach ($friends as $friend) : ?>
                         <div>
-                            <a href="profile.php?uid=<?php echo $user->getId(); ?>"><?php echo $user->getName(); ?></a>
+                            <a href="profile.php?uid=<?php echo $friend->getId(); ?>"><?php echo $friend->getName(); ?></a>
                         </div>
                     <?php endforeach ?>
                 </div>
             </div>
+
+            <?php if ($user->getId() == $currentUser->getId()): ?>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Profile Status</h2>
+                    </div>
+                    <div class="panel-body">
+
+                        <?php if ($userService->hasCompleteProfile($currentUser)): ?>
+                            <p>Your profile is <strong>complete</strong>!</p>
+                        <?php endif; ?>
+
+                        <?php if (!$userService->hasCompleteProfile($currentUser)): ?>
+                            <p>Your profile is <strong>incomplete</strong>!</p>
+                            <?php if ($currentUser->getPhone() == null || $currentUser->getPhone() == ''): ?>
+                            <p>Add your mobile phone number and you can text messages to your stream!</p>
+                            <?php endif; ?>
+                        <?php endif; ?>
+
+                        <a class="btn btn-primary" href="user-edit.php">Update Profile</a>
+                    </div>
+                </div>
+            <?php endif; ?>
 
         </div>
     </div>

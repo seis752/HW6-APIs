@@ -6,6 +6,7 @@ class User
     protected $username;
     protected $name;
     protected $friends;
+    protected $phone;
 
     public static function create($array)
     {
@@ -14,12 +15,22 @@ class User
         $user->username = $array['username'];
         $user->name = $array['name'];
 
+        if (array_key_exists('phone', $array))
+        {
+            $user->phone = $array['phone'];
+        }
+
         return $user;
     }
 
     public function getId()
     {
         return $this->id;
+    }
+
+    public function setId($value)
+    {
+        $this->id = $value;
     }
 
     public function getUsername()
@@ -41,4 +52,15 @@ class User
     {
         $this->friends = $users;
     }
+
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    public function setPhone($value)
+    {
+        $this->phone = $value;
+    }
+
 }

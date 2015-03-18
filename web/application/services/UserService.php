@@ -180,4 +180,33 @@ class UserService {
         return $users;
     }
 
+    public function save($user)
+    {
+        if ($user != null)
+        {
+            $query = sprintf("UPDATE user
+            SET phone = '%s'
+            WHERE id = %d",
+                $this->db->mysqli->real_escape_string($user->getPhone()),
+                $user->getId()
+                );
+
+            $result = $this->db->query($query);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function hasCompleteProfile($user)
+    {
+        if ($user->getPhone() != '')
+        {
+            return true;
+        }
+
+        return false;
+    }
+
 }
