@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  //session_start();
 
 	$hostname_db = "mysql.dreamer42.com";
 	$database_db = "seis752homework_db";
@@ -11,4 +11,3 @@
 	  {
 	    die('Could not connect: ' . mysql_error());
 	  }
-?>
