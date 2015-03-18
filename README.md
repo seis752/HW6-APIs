@@ -14,6 +14,9 @@ There are 7 user records set up for demonstration, in addition to the 2000 user 
 ### PART 1: Integration with Twilio messaging service
 The web application allows users to post messages to their own message streams via text messages sent to the Twilio number. The phone number used to send the text message must already exist in the user record. A page to allow users to update their user records (currently, limited to editing "phone") has been added and is available from the user's "Profile" page. A response message will be sent back to the phone number sending the message, indicating either a success or failure condition.
 
+### PART 2: ?
+*This part of the assignment has not been completed yet.*
+
 ## Setup
 * `schema.sql` (located in `database/`) contains the SQL commands for creating the database structure and inserting sample data. NOTE: `schema.sql` contains commands for dropping and creating the schema, in addition to the commands for creating tables and inserting sample data.
 * `web/` is the directory that should be set as the public, web-accessible "webroot" directory for the application
