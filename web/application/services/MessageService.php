@@ -40,7 +40,8 @@ class MessageService {
 
   public function sanitizeMessageContent($content)
   {
-    $clean = mysql_real_escape_string($content);
+//    $clean = mysql_real_escape_string($content);
+    $clean = $this->db->mysqli->real_escape_string($content);
     $clean = str_replace(array('\\', "\0", "\n", "\r", "'", '"', "\x1a"), array('\\\\', '\\0', '\\n', '\\r', "\\'", '\\"', '\\Z'), $clean);
     return $clean;
   }
