@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ALL);
 require_once('application/bootstrap.php');
 
 $db = new Database();
@@ -136,8 +136,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         if ($userService->register($clean['username'], $clean['password'], $clean['name']))
         {
+            echo 'A';
+            var_dump($clean);
             if ($authenticationService->authenticate($clean['username'], $clean['password']))
             {
+                echo 'b';
                 header('Location: profile.php');
             }
         }
