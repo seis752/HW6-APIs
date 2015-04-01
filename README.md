@@ -2,9 +2,6 @@
 
 ## Submission Notes
 * The hosted web application is available for review here: http://justinmcdowell.com/hw6/
-* As of 2015-03-17:
- * **PART 1: Integration with Twilio messaging service** is complete. See **Demo** section for description.
- * **PART 2: ?** is incomplete.
 
 ## Demo
 There are 7 user records set up for demonstration, in addition to the 2000 user records (provided for HW5). The 7 demo users have usernames "user1", "user2", "user3", etc. and all have password "password". The other users have password "abc123".
@@ -12,8 +9,8 @@ There are 7 user records set up for demonstration, in addition to the 2000 user 
 ### PART 1: Integration with Twilio messaging service
 The web application allows users to post messages to their own message streams via text messages sent to the Twilio number. The phone number used to send the text message must already exist in the user record. A page to allow users to update their user records (currently, limited to editing "phone") has been added and is available from the user's "Profile" page. A response message will be sent back to the phone number sending the message, indicating either a success or failure condition.
 
-### PART 2: ?
-*This part of the assignment has not been completed yet.*
+### PART 2: Integration with OpenWeatherMap API
+The web application will display current weather information, obtained from the OpenWeatherMap API (http://openweathermap.org/), on a user's "Profile" page, if the user record has latitude ("lat") and longitude ("lon") data. When the "Profile" page is loaded, an Ajax request is made to the OpenWeatherMap API. When a response is received, the "Weather" panel (right-hand sidebar) is updated.
 
 ## Setup
 * `schema.sql` (located in `database/`) contains the SQL commands for creating the database structure and inserting sample data. NOTE: `schema.sql` contains commands for dropping and creating the schema, in addition to the commands for creating tables and inserting sample data.
