@@ -160,6 +160,25 @@ $messages = $messageService->findMessages($user->getId());
                 </div>
             <?php endif; ?>
 
+            <div class="panel panel-default panel-weather" data-lat="<?php echo $user->getLat(); ?>" data-lon="<?php echo $user->getLon(); ?>">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Weather</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="loading">Loading...</div>
+                    <div class="unavailable" style="display: none;">Weather information is unavailable.</div>
+                    <div class="weather" style="display: none;">
+                        <div class="name"></div>
+                        <div class="condition">
+                            <img src="http://openweathermap.org/img/w/10d.png" alt="" />
+                        </div>
+                        <div class="temperature"><span class="weather-label">Temp:</span> <span class="value"></span>&deg;F</div>
+                        <div class="humidity"><span class="weather-label">Humidity:</span> <span class="value"></span>%</div>
+                    </div>
+                    <div class="credit">Weather data provided by <a href="http://openweathermap.org/">OpenWeatherMap</a>.</div>
+                </div>
+            </div>
+
         </div>
     </div>
 

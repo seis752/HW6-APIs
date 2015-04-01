@@ -185,9 +185,11 @@ class UserService {
         if ($user != null)
         {
             $query = sprintf("UPDATE user
-            SET phone = '%s'
+            SET phone = '%s', lat = %f, lon = %f
             WHERE id = %d",
                 $this->db->mysqli->real_escape_string($user->getPhone()),
+                $this->db->mysqli->real_escape_string($user->getLat()),
+                $this->db->mysqli->real_escape_string($user->getLon()),
                 $user->getId()
                 );
 

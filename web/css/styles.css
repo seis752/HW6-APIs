@@ -39,3 +39,22 @@ body {
 .validation-error-message {
   color: #a94442;
 }
+
+/* weather */
+
+.weather .name {
+  font-weight: bold;
+}
+
+.weather .weather-label {
+  color: #888;
+}
+
+.weather .value {
+  font-weight: bold;
+}
+
+.panel-weather .credit {
+  margin-top: 10px;
+  font-size: .8em;
+}

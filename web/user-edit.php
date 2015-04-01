@@ -18,6 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = new User();
     $user->setId($currentUser->getId());
     $user->setPhone($_POST['phone']);
+    $user->setLat($_POST['lat']);
+    $user->setLon($_POST['lon']);
 
     $userService->save($user);
 
@@ -59,6 +61,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label for="phone">Phone</label><br/>
                             <input id="phone" name="phone" type="text" value="<?php echo $currentUser->getPhone(); ?>" />
                             <div>Enter phone as 10-digit string with prefixed country code (e.g., "+16125551234")</div>
+                        </div>
+                        <div class="form-row">
+                            <label for="lat">Latitude</label><br/>
+                            <input id="lat" name="lat" type="text" maxlength="15" value="<?php echo $currentUser->getLat(); ?>" />
+                            <div>...</div>
+                        </div>
+                        <div class="form-row">
+                            <label for="lon">Longitude</label><br/>
+                            <input id="lon" name="lon" type="text" maxlength="15" value="<?php echo $currentUser->getLon(); ?>" />
+                            <div>...</div>
                         </div>
                         <div class="form-row">
                             <button type="submit" class="btn btn-primary">Update</button>
