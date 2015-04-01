@@ -157,7 +157,6 @@ class UserService {
         {
             $query = sprintf("INSERT INTO user (username, password, name, created_when) VALUES ('%s', '%s', '%s', now())", $this->db->mysqli->real_escape_string($username), crypt($password), $this->db->mysqli->real_escape_string($name));
             $result = $this->db->query($query);
-            var_dump($result);
 
             return true;
         }

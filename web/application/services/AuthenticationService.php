@@ -21,11 +21,11 @@ class AuthenticationService
         $result = $this->db->query($query);
 
         $row = $result->fetch_assoc();
-        var_dump($row);
+
         if (null != $row) {
             $user = User::create($row);
         }
-var_dump($user);
+
         if (null != $user)
         {
             if (crypt($password, $row['password']) == $row['password']) {
