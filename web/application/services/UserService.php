@@ -155,7 +155,6 @@ class UserService {
 
         if ($user == null)
         {
-            // TODO: Encrypt password!
             $query = sprintf("INSERT INTO user (username, password, name, created_when) VALUES ('%s', '%s', '%s', now())", $this->db->mysqli->real_escape_string($username), crypt($password), $this->db->mysqli->real_escape_string($name));
             $result = $this->db->query($query);
 
@@ -185,9 +184,11 @@ class UserService {
         if ($user != null)
         {
             $query = sprintf("UPDATE user
-            SET phone = '%s'
+            SET phone = '%s', lat = %f, lon = %f
             WHERE id = %d",
                 $this->db->mysqli->real_escape_string($user->getPhone()),
+                $this->db->mysqli->real_escape_string($user->getLat()),
+                $this->db->mysqli->real_escape_string($user->getLon()),
                 $user->getId()
                 );
 

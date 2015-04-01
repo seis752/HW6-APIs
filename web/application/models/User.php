@@ -7,6 +7,8 @@ class User
     protected $name;
     protected $friends;
     protected $phone;
+    protected $lat;
+    protected $lon;
 
     public static function create($array)
     {
@@ -18,6 +20,16 @@ class User
         if (array_key_exists('phone', $array))
         {
             $user->phone = $array['phone'];
+        }
+
+        if (array_key_exists('lat', $array))
+        {
+            $user->lat = $array['lat'];
+        }
+
+        if (array_key_exists('lon', $array))
+        {
+            $user->lon = $array['lon'];
         }
 
         return $user;
@@ -61,6 +73,26 @@ class User
     public function setPhone($value)
     {
         $this->phone = $value;
+    }
+
+    public function getLat()
+    {
+        return $this->lat;
+    }
+
+    public function setLat($value)
+    {
+        $this->lat = $value;
+    }
+
+    public function getLon()
+    {
+        return $this->lon;
+    }
+
+    public function setLon($value)
+    {
+        $this->lon = $value;
     }
 
 }
