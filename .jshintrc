@@ -1,0 +1,67 @@
+// http://jshint.com/docs/options/
+{
+  // Enforcing options
+  "bitwise": false,
+  //"camelcase": false, // Deprecated
+  "curly": true,
+  //"enforceall": false, // Deprecated
+  "eqeqeq": true,
+  "es3": false,
+  "forin": true,
+  "freeze": true,
+  "funcscope": false,
+  "futurehostile": true,
+  "globals": false,
+  "globalstrict": false,
+  //"immed": true, // Deprecated
+  //"indent": 2, // Deprecated
+  "iterator": false,
+  "latedef": true,
+  "maxcomplexity": 7,
+  "maxdepth": 5,
+  "maxerr": 50, // default: 50
+  //"maxlen": 80, // Deprecated
+  "maxparams": 3,
+  "maxstatements": 10,
+  //"newcap": true, // Deprecated
+  "noarg": true,
+  "nocomma": true,
+  //"noempty": true, // Deprecated
+  "nonbsp": true,
+  "nonew": true,
+  "notypeof": false,
+  //"quotmark": "single", // Deprecated
+  "shadow": false,
+  "singleGroups": true,
+  "undef": true,
+  "unused": true,
+  // Relaxing options
+  "asi": false,
+  "boss": false,
+  "debug": false,
+  "elision": false,
+  "eqnull": true,
+  "esnext": false,
+  "evil": true,
+  "expr": true,
+  "lastsemic": false,
+  //"laxbreak": false, // Deprecated
+  //"laxcomma": false, // Deprecated
+  "loopfunc": false,
+  "moz": false,
+  //"multistr": false, // Deprecated
+  "noyield": false,
+  "phantom": false,
+  "plusplus": false,
+  "proto": false,
+  "scripturl": false,
+  "strict": true,
+  //"sub": false, // Deprecated
+  "supernew": false,
+  "validthis": false,
+  "withstmt": false,
+  // Environments
+  "browser": true,
+  "devel": true,
+  "jquery": true
+}

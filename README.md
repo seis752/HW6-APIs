@@ -1,29 +1,33 @@
 # HW6-APIs
 
+## Submission Notes
+* The hosted web application is available for review here: http://justinmcdowell.com/hw6/
 
-## PART1 –
- Using TWILLIO API – POST a message to your site.
- - Use the discount code in the slide lectures for a $30 credit.
+## Demo
+There are 7 user records set up for demonstration, in addition to the 2000 user records (provided for HW5). The 7 demo users have usernames "user1", "user2", "user3", etc. and all have password "password". The other users have password "abc123".
 
-## PART2 – 
-###OPTION 1: Implement [one] Step by Step an OAuth Token exchange.
- - https://developers.google.com/accounts/docs/OAuth2
- - http://developer.linkedin.com/documents/authentication 
- - https://developers.facebook.com/docs/howtos/login/server-side-login/ 
-AND Make at least 2 endpoint requests. 
-Display the results down a long page.
+### PART 1: Integration with Twilio messaging service
+The web application allows users to post messages to their own message streams via text messages sent to the Twilio number. The phone number used to send the text message must already exist in the user record. A page to allow users to update their user records (currently, limited to editing "phone") has been added and is available from the user's "Profile" page. A response message will be sent back to the phone number sending the message, indicating either a success or failure condition.
 
-###OPTION 2: Choose, choose a public Web Service API {Twillio, Flickr, Amazon, YouTube,  Google, etc } and write a page that will query the API and return results on your page.
- - Parse XML, JSON or ?? Objects
- - Recompile results into 
- - Image / Book Cover / Video Thumbnail
- - Description
- - Plus something else  
- - Tags
- - GeoCode info
- - Other?
- - Parse and contain results on your application page.
- 
-##Deliverable: 
-1. Fork this Repo, submit pull request to turn in
-2. Include in the Repo a Description /Documentation  of what you did.
+### PART 2: Integration with OpenWeatherMap API
+The web application will display current weather information, obtained from the OpenWeatherMap API (http://openweathermap.org/), on a user's "Profile" page, if the user record has latitude ("lat") and longitude ("lon") data. When the "Profile" page is loaded, an Ajax request is made to the OpenWeatherMap API. When a response is received, the "Weather" panel (right-hand sidebar) is updated.
+
+## Setup
+* `schema.sql` (located in `database/`) contains the SQL commands for creating the database structure and inserting sample data. NOTE: `schema.sql` contains commands for dropping and creating the schema, in addition to the commands for creating tables and inserting sample data.
+* `web/` is the directory that should be set as the public, web-accessible "webroot" directory for the application
+* `config.php-template` (located in application/) must be renamed to `config.php` and update with database access credentials.
+
+## Repository Layout
+
+Description of the key directories and files:
+
+* `assignment/` - Contains the original assignment assets.
+* `database/` - Contains database model and script files.
+* `schema.sql` - The SQL script for generating the project database, with sample data.
+* `schema-data.sql` - SQL script containing only the sample data.
+* `schema-structure.sql` - SQL script defining database structure, generated from the MySQL Workbench model file.
+* `seis752justin_db.mwb` - MySQL Workbench model file.
+* `setup.bat` - Useful during development to run SQL scripts against the MySQL instance.
+* `twilio-datamodel.sql` - SQL script containing the DDL statements for the in-class example—currently, included only to support debugging
+* `web/` - Contains the website files for deployment—the "web root" directory.
+ * `application/config.php-template` - Rename to `config.php` and update with database access credentials.

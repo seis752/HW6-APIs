@@ -1,0 +1,11 @@
+{
+  "name": "HW6-APIs",
+  "version": "0.0.0",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.11.0",
+    "grunt-jscs": "~1.5.0",
+    "grunt-contrib-csslint": "~0.4.0",
+    "grunt-contrib-concat": "~0.5.1"
+  }
+}
