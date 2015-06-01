@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+	  	<link rel="icon" href="favicon.ico" type="image/png">
+		<link rel="icon" href="favicon.ico" type="image/png">
+		<link rel="icon" type="image/png" size="96x96" href="favicon-96x96.png">
+
+		<meta charset="utf-8">
+	<title>
+		Current Weather in Florida
+	</title>
+	
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	
+	<link rel = "stylesheet" href = "css/bootstrap.css">
+ 	<link rel = "stylesheet" href = "css/bootstrap_theme.css">
+	<link rel = "stylesheet" href = "css/custom.css">
+	</head>
+<body>
+<h2>Current Weather in Florida</h2>  
+  
+<img src="flmap.png" alt="Map of the North Shore" style="width:215px;height:235px">
+<h3> Current Weather</h3>
+<!-- http://simpleweather.monkeecreate.com -->
+<div id="weather"></div>
+<div style="margin: .5in; height: 400;"> 
+<p><b>Choose from the list of cities in Florida</b></p> 
+<form> 
+<select name="zipcode" id="selection" select onchange="dReload()"> 
+<option value="33101">Miami
+<option value="33601">Tampa 
+<option value="33900">Fort Myers 
+<option value="34101">Naples
+<option value="33040">Key West
+</select>
+</form>
+</div>
+<script type="application/javascript">
+var zip = 33101;
+zip = (document.getElementById('selection').value);
+function dReload( ) {
+location.reload( ); 
+}
+</script>
+  
+<script>
+    window.console = window.console || function(t) {};
+    window.open = function(){ console.log('window.open is disabled.'); };
+    window.print = function(){ console.log('window.print is disabled.'); };
+    // Support hover state for mobile.
+    if (false) {
+      window.ontouchstart = function(){};
+    }
+  </script>
+
+    <script src="http://assets.codepen.io/assets/libs/prefixfree.min-de773054e90c52a3c2631c944681b64e.js">"></script>
+
+    <script src="http://assets.codepen.io/assets/libs/modernizr-0e41cf622f0788eca25945c37bdc5b15.js">"></script>
+
+
+  <!-- http://simpleweather.monkeecreate.com -->
+<div id="weather"></div>
+
+  <script src='http://assets.codepen.io/assets/libs/fullpage/jquery-ab8e840c3dad7ccf2deadb8c40d53bdb.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js'></script>
+
+  <script>
+    if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage('resize', "*");
+    }
+  </script>
+
+  <script src="http://assets.codepen.io/assets/common/stopExecutionOnTimeout-28158334dc770ccf9e26198819d22b9a.js"></script>
+
+  <script>
+    $(document).ready(function() {  
+  getWeather(); //Get the initial weather.
+  setInterval(getWeather, 600000); //Update the weather every 10 minutes.
+});
+
+function getWeather() {
+  $.simpleWeather({
+    location: zip,
+    unit: 'f',
+    success: function(weather) {
+      html = '<h2>'+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+      html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
+      html += '<li class="currently">'+weather.currently+'</li>';
+      html += '<li>'+weather.alt.temp+'&deg;C</li></ul>';
+
+      $("#weather").html(html);
+    },
+    error: function(error) {
+      $("#weather").html('<p>'+error+'</p>');
+    }
+  });
+}
+    //@ sourceURL=pen.js
+  </script>
+	
+ 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+			<script type="text/javascript" script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
+		<script type="text/javascript" script src="js/jquery.simpleWeather.min.js"></script>
+</body>
+</html>

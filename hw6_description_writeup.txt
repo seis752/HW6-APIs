@@ -1,0 +1,10 @@
+Part 1 - Twilio
+
+For this section, I was able to get Twilio working and posting text messages to a web page. However I ran out of time to integrate this into my messages. It 
+took too much time (about 3+ hours) just to get it working for me. I had trouble with establishing database the connection and spent a lot time trying to make that work correctly with config.php and nail down the proper syntax. Also, had an error meesage with the twilio page and I didn't notice the close line at the bottom of that page for a while (which is a problem for a page that refreshes every second). But once I noticed it, I deleted it and it worked fine. 
+
+Part 2 page 1-- Simple Weather 
+For this section, I built a web page that provided current weather conditions based on the users choice from a pulldown list of Florida cities (page called flweather.html). To retreive the weather data for the page, I used Simple Weather (Yahoo Weather API) which is jQuery-based. There were various source links and some JS code to insert into the page. I passed the user selection through a variable called zip into the provided code. I selected Simple Weather because it allows flexibility in how you can display weather data and is fairly easy to set up. Tested on Firefox.
+
+Part 2 page 2-- Geocode Address
+In addition, I also put together a page (which I will need part of for our project prototype) that asks the user for an address or city location in an html form. This variable "address" is passed to the "geocodeAddress()" function which sends it to the Google API to be geoencoded. The API returns a location (results.[0]geometry.location) which contains latitude and longitude to allow for the generation of a marker on the map (through  "var marker = new google.maps.Marker({". ).So user sees where on the map the address is that he or she just entered. Tested in Chrome. 
